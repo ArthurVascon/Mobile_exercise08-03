@@ -16,13 +16,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calcularResultado(view: View) {
-        val alcool = findViewById<EditText>(R.id.alcool).text.toString().toInt()
-        val gasolina = findViewById<EditText>(R.id.gasolina).text.toString().toInt()
+        val alcool = findViewById<EditText>(R.id.alcool).text.toString().toDouble()
+        val gasolina = findViewById<EditText>(R.id.gasolina).text.toString().toDouble()
         val resultado = findViewById<TextView>(R.id.resultado)
+        var result = alcool / gasolina
 
-        if(alcool > gasolina){
+        if(result >= 0.7){
             resultado.setText("Álcool esmurrou a gasolina, amado!")
-        } else if(alcool == gasolina) {
+        } else if(result.equals(0)) {
             resultado.setText("Empate xuxu!")
         } else {
             resultado.setText("Gasolinha esmurrou o álcool, coração")
